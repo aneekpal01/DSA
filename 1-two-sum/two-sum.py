@@ -3,9 +3,9 @@ class Solution(object):
         seen = {}
 
         for i in range(len(nums)):
-            needed = target - nums[i]
+            complement = target - nums[i]
 
-            if needed in seen:
-                return [seen[needed], i]
+            if complement in seen:
+                return [seen[complement], i]
 
             seen[nums[i]] = i
