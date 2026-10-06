@@ -5,15 +5,14 @@ class Solution(object):
         answer = 0
 
         while left < right:
-            width = right - left
-            current_height = min(height[left], height[right])
-            area = width * current_height
-
-            answer = max(answer, area)
-
             if height[left] < height[right]:
+                area = height[left] * (right - left)
                 left += 1
             else:
+                area = height[right] * (right - left)
                 right -= 1
+
+            if area > answer:
+                answer = area
 
         return answer
